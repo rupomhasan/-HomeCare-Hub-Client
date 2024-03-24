@@ -6,19 +6,31 @@ const NavList = () => {
     <>
       <NavLink
         to="/"
-        className={({ isActive }) => (isActive ? "text-[#5bb543] " : "")}
+        className={({ isActive }) =>
+          `${
+            isActive ? "text-[#5bb543] " : ""
+          }  hover:text-white hover:bg-[#5bb543] py-1 px-3 rounded`
+        }
       >
         Home
       </NavLink>
       <NavLink
         to="/services"
-        className={({ isActive }) => (isActive ? "text-[#5bb543] " : "")}
+        className={({ isActive }) =>
+          `${
+            isActive ? "text-[#5bb543] " : ""
+          } hover:text-white hover:bg-[#5bb543] py-1 px-3 rounded`
+        }
       >
         Services
       </NavLink>
       <NavLink
         to="/aboutUs"
-        className={({ isActive }) => (isActive ? "text-[#5bb543] " : "")}
+        className={({ isActive }) =>
+          `${
+            isActive ? "text-[#5bb543] " : ""
+          }  hover:text-white hover:bg-[#5bb543] py-1 px-3 rounded`
+        }
       >
         AboutUs
       </NavLink>

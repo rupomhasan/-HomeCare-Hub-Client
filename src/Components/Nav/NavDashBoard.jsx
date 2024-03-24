@@ -6,8 +6,8 @@ const NavDashBoard = () => {
   return (
     <div className="dropdown dropdown-end">
       <div tabIndex={0} role="button">
-        <ul className="flex gap-3 items-center">
-          <li className="">Dashboard</li>
+        <ul className="flex gap-3 items-center hover:text-white hover:bg-[#5bb543] py-1 px-3 rounded">
+          <li className="  ">Dashboard</li>
           <IoIosArrowDown className="text-xl" />
         </ul>
       </div>

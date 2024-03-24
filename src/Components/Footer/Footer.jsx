@@ -6,14 +6,20 @@ import { ImLocation2 } from "react-icons/im";
 
 const Footer = () => {
   return (
-    <div>
-      <footer className="footer p-10 bg-base-200 text-base-content">
+    <div
+      className="bg-[#142935] py-10 px-2"
+      style={{
+        backgroundImage:
+          "url('https://serve-nextjs.vercel.app/assets/images/footer-left-shape.png')",
+      }}
+    >
+      <footer className="max-w-screen-xl mx-auto footer p-10  text-white">
         <aside>
           <Logo />
           <p className="text-left w-40  hover:text-[#5bb543] mb-2">
             Bringing Comfort and Care to Your Doorstep, Making Lives Better
           </p>
-          <button className="btn btn-outline border-2 hover:bg-[#5bb543] hover:border-none rounded-lg border-[#5bb543]">
+          <button className="btn text-white btn-outline border-2 hover:bg-[#5bb543] hover:border-none rounded-lg border-[#5bb543]">
             All Services
           </button>
         </aside>
