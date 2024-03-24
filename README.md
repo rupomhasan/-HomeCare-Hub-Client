@@ -1,8 +1,15 @@
-# React + Vite
+# HomeCare Hub
+Welcome to HomeCare Hub, all you home care nees here!
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## Description 
+__HomeCare Hub__ is a web application designed to provide a convenient and reliable solution for accessing home care services.Like( caregiving support , household maintenance ) HomeCare Hub connects you with qualified professionals who can cater to your specific requirements.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## Libraries
+- User-friendly interface.
+- Seamless navigation with __Rect Router__.
+- Responsibe design powered by __Tailwind CSS__ with __Daisy UI__.
+- Integration with __Tanstack__  for state management.
+- __Axios__ for smooth data fatching.
+- More commponets libraries for enhanced fucctionality.
