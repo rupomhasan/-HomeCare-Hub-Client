@@ -28,13 +28,15 @@ const Navbar = () => {
     <>
       <motion.div
         className={`max-w-screen-xl my-2  mx-auto  navbar rounded-3xl ${
-          isStick ? "fixed z-10 bg-base-200 " : "static"
+          isStick
+            ? "fixed z-10 bg-base-200 inset-x-0 flex justify-center   "
+            : "static"
         }`}
-        initial={{ y: -100 }}
+        initial={{ y: -60 }}
         animate={{ y: isStick ? 0 : 0 }}
         transition={{
-          delay: 0.4,
-          duration: 1,
+          delay: 0.2,
+          duration: 0.5,
           type: "tween",
           ease: isStick ? "easeIn" : "linear",
         }}
