@@ -25,3 +25,8 @@ __HomeCare Hub__ is a web application designed to provide a convenient and relia
 - Added autoplay carousel functionality to the banner.
 - Implemented dynamic slider data with smooth animation.
 - User can easily navigate through dynamic content.
+
+
+### Features Implemented 
+
+- Enhanced homepage with React slider carousel powered by Framer Motion for seamless navigation of home care categories, elevating user browsing experience.
