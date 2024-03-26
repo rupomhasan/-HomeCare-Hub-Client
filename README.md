@@ -30,3 +30,4 @@ __HomeCare Hub__ is a web application designed to provide a convenient and relia
 ### Features Implemented 
 
 - Enhanced homepage with React slider carousel powered by Framer Motion for seamless navigation of home care categories, elevating user browsing experience.
+- In HomeCare Hub highlights 'Popular Services'. 'View All' to explore products, view and navigate to details page
