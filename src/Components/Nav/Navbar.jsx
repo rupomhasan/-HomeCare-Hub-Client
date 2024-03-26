@@ -22,7 +22,6 @@ const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  console.log(isStick);
   const user = true;
   return (
     <>
