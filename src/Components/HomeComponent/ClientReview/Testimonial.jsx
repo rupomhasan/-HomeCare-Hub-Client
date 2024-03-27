@@ -26,7 +26,6 @@ const Testimonial = () => {
   const play = () => {
     sliderRef.current.slickPlay();
   };
-  console.log("reviews", reviews);
   const settings = {
     slidesToShow: 2,
     slidesToScroll: 2,

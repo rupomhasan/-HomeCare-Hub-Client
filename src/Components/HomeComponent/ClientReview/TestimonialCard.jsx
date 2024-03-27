@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import React from "react";
 import { FaRegStar, FaStar } from "react-icons/fa6";
 import Rating from "react-rating";
+import { MdDateRange } from "react-icons/md";
 
 const TestimonialCard = ({ data }) => {
   const { description, name, photoUrl, rating, reviewDate } = data;
@@ -28,7 +29,10 @@ const TestimonialCard = ({ data }) => {
               emptySymbol={<FaRegStar className="text-lg text-[#FFDF00]" />}
               fullSymbol={<FaStar className="text-lg text-[#FFDF00]" />}
             />
-            <p className="font-bold text-gray-500">{reviewDate}</p>
+            <p className="flex items-center gap-1 font-bold text-gray-500">
+              <MdDateRange className="text-lg" />
+              {reviewDate}
+            </p>
           </div>
         </div>
         <div className="">
