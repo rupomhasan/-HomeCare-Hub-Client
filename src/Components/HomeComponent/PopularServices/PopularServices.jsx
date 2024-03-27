@@ -14,7 +14,6 @@ const PopularServices = () => {
       return res;
     },
   });
-  console.log(services?.data);
 
   return (
     <div className="bg-[#f8f8f3] relative ">

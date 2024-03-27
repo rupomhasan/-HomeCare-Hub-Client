@@ -6,18 +6,15 @@ import { FaRegStar } from "react-icons/fa";
 import Rating from "react-rating";
 
 const ServiceCard = ({ service }) => {
-  console.log(service);
   const {
     Category,
     Service_Image,
     Rating: rating,
-    Service_Description,
     Service_Price,
     Service_Provider,
     Service_Name,
   } = service;
-  const { Name, Logo } = Service_Provider;
-  console.log(service);
+  const {  Logo } = Service_Provider;
 
   return (
     <div>
