@@ -1,13 +1,36 @@
+import { Link } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
+import useAxios from "../../Hooks/useAxios";
+
 const NavLogin = () => {
+  const axios = useAxios();
+  const { user, userLogOut } = useAuth();
+
+  const handleLogout = () => {
+    userLogOut().then(axios.delete("/auth/clear-cookie"));
+    window.location.reload();
+  };
+
   return (
     <div>
       <div>
-        <button
-          className="btn px-8 bg-[#5bb543]
+        {!user ? (
+          <Link
+            to="/login"
+            className="btn px-8 bg-[#5bb543]
+      hover:bg-[#3fe012] text-white text-lg btn-sm w-full"
+          >
+            Login
+          </Link>
+        ) : (
+          <button
+            onClick={handleLogout}
+            className="btn px-8 bg-[#5bb543]
         hover:bg-[#3fe012] text-white text-lg btn-sm w-full"
-        >
-          Login
-        </button>
+          >
+            Logout
+          </button>
+        )}
       </div>
     </div>
   );

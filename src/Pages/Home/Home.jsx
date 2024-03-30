@@ -4,6 +4,7 @@ import Trust from "../../Components/HomeComponent/ChooseUs/Trust.";
 import Testimonial from "../../Components/HomeComponent/ClientReview/Testimonial";
 import Blogs from "../../Components/HomeComponent/Blogs/Blogs";
 import PopularServices from "../../Components/HomeComponent/PopularServices/PopularServices";
+import Sponsor from "../../Components/HomeComponent/Sponsor/Sponsor";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <Trust />
       <Blogs />
       <Testimonial />
+      <Sponsor />
     </div>
   );
 };

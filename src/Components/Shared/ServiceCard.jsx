@@ -7,6 +7,7 @@ import Rating from "react-rating";
 
 const ServiceCard = ({ service }) => {
   const {
+    _id,
     Category,
     Service_Image,
     Rating: rating,
@@ -14,7 +15,7 @@ const ServiceCard = ({ service }) => {
     Service_Provider,
     Service_Name,
   } = service;
-  const {  Logo } = Service_Provider;
+  const { Logo } = Service_Provider;
 
   return (
     <div>
@@ -69,7 +70,7 @@ const ServiceCard = ({ service }) => {
               <TbCurrencyTaka className="text-xl" />
               <span className="text-3xl">{Service_Price}</span>
             </div>
-            <Link className="text-xl">
+            <Link to={`/service/${_id}`} className="text-xl">
               View Details <FaArrowRightLong className="badge badge-outline" />
             </Link>
           </div>

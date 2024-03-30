@@ -1,22 +1,31 @@
-import { Link } from "react-router-dom";
-import Social from "../../Components/Shared/Social";
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import Social from "../../Components/Shared/Social";
 import { TiArrowBack } from "react-icons/ti";
+import { motion } from "framer-motion";
 import Lottie from "lottie-react";
 import loginAnimation from "../../assets/Lottie/Login.json";
 import useAuth from "../../Hooks/useAuth";
-const Signup = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+const SignIn = () => {
+  const { userLogin } = useAuth();
   const [password, setPassword] = useState("");
-  const { newUserSignUp } = useAuth();
-  const handleNewUser = (e) => {
+  const [email, setEmail] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleLogin = (e) => {
     e.preventDefault();
-    newUserSignUp(email, password).then((userCredential) => {
-      console.log(userCredential.user);
-    });
-    console.log({ name, email, password });
+    userLogin(email, password)
+      .then((res) => {
+        console.log(res);
+
+        if (res) {
+          navigate(location?.state ? location?.state : "/");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -34,11 +43,11 @@ const Signup = () => {
             Back To Home
           </Link>
         </motion.button>
-        <div className="text-center pt-20">
-          <h1 className="text-5xl font-bold">Register now!</h1>
-          <div className=" flex justify-center text-xl font-bold text-gray-500">
+        <div className="text-center mt-10">
+          <h1 className="text-5xl font-Teko  font-semibold">Login now!</h1>
+          <div className="text-xl text-gray-500 font-semibold flex justify-center">
             <p className="py-6">
-              Discover the simplicity of registration <br /> Join us today!
+              Experience the ease of seamless login <br /> Join us now!
             </p>
           </div>
         </div>
@@ -47,27 +56,15 @@ const Signup = () => {
             <Lottie animationData={loginAnimation} />
           </div>
           <div className="card w-fit p-10  shadow-2xl bg-base-100">
-            <form onSubmit={handleNewUser} className="">
+            <form onSubmit={handleLogin} className="">
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Name</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Name"
-                  className="px-5 py-1 rounded border"
-                  required
-                  onBlur={(e) => setName(e.target.value)}
-                />
-              </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Email</span>
+                  <span className="label-text ">Email</span>
                 </label>
                 <input
                   type="email"
                   placeholder="email"
-                  className="px-5 py-1 rounded border"
+                  className=" rounded border px-5 py-1"
                   required
                   onBlur={(e) => setEmail(e.target.value)}
                 />
@@ -79,24 +76,28 @@ const Signup = () => {
                 <input
                   type="password"
                   placeholder="password"
-                  className="px-5 py-1 rounded border"
+                  className=" rounded border px-5 py-1"
                   required
                   onBlur={(e) => setPassword(e.target.value)}
                 />
+                <label className="label">
+                  <a href="#" className="label-text-alt link link-hover">
+                    Forgot password?
+                  </a>
+                </label>
               </div>
 
-              <button
+              <input
                 type="submit"
                 className="btn rounded bg-[#5bb543] btn-sm mt-3 text-white text-xl font-Teko hover:bg-[#29a806] w-full"
-              >
-                Register Now
-              </button>
+                value="Login Here "
+              />
             </form>
             <div className="mt-4">
               <p>
-                Already have an account ?{" "}
-                <Link to="/login" className="hover:link font-bold ">
-                  Please Login
+                New to this site ?{" "}
+                <Link to="/signup" className="hover:link font-bold">
+                  Please Register
                 </Link>
               </p>
               <div className="flex items-center gap-3 my-4">
@@ -115,4 +116,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default SignIn;

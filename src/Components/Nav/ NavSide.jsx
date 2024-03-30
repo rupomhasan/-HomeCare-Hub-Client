@@ -1,7 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
+import useAxios from "../../Hooks/useAxios";
 
 const NavSide = () => {
+  const { userLogOut } = useAuth();
+  const axios = useAxios();
+
+  const handleLogOut = () => {
+    userLogOut().then(axios.delete("/auth/clear-cookie"));
+    window.location.reload();
+  };
   return (
     <div className="flex-none">
       <div className="dropdown dropdown-end">
@@ -68,7 +77,7 @@ const NavSide = () => {
             <Link>Settings</Link>
           </li>
           <li>
-            <Link>Logout</Link>
+            <button onClick={handleLogOut}>Logout</button>
           </li>
         </ul>
       </div>

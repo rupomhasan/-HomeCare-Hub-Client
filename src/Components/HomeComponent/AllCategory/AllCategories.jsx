@@ -15,12 +15,14 @@ const AllCategories = () => {
 
   const settings = {
     dots: true,
+    speed: 600,
     infinite: true,
     slidesToScroll: 1,
     slidesToShow: 4,
     autoplay: true,
     autoplaySpeed: 2000,
     currentSlide: currentIndex,
+    rtl: true,
     responsive: [
       {
         breakpoint: 400,

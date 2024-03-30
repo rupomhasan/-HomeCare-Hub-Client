@@ -5,10 +5,11 @@ import NavSide from "./ NavSide";
 import NavLogin from "./NavLogin";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import useAuth from "../../Hooks/useAuth";
 
 const Navbar = () => {
   const [isStick, setIsSticky] = useState(false);
-
+  const { user } = useAuth();
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
@@ -22,7 +23,8 @@ const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  const user = true;
+
+
   return (
     <>
       <motion.div
@@ -37,7 +39,7 @@ const Navbar = () => {
           delay: 0.2,
           duration: 0.5,
           type: "tween",
-          ease: isStick ? "easeIn" : "linear",
+          ease: user ? "easeIn" : "linear",
         }}
       >
         <div className="flex-none lg:hidden">

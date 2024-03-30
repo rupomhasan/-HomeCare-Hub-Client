@@ -11,7 +11,6 @@ import Slider_3 from "./Slider/Slider_3";
 const Banner = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-
   const handleSlideChange = (index) => {
     setCurrentIndex(index);
   };
@@ -24,7 +23,7 @@ const Banner = () => {
   var settings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,

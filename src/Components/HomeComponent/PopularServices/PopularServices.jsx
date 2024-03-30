@@ -1,8 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxios from "../../../Hooks/useAxios";
-import ServiceCard from "../../Sheared/ServiceCard";
+import ServiceCard from "../../Shared/ServiceCard";
 import { motion } from "framer-motion";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const PopularServices = () => {
   // done : http://localhost:5000/api/v1/services?page=1&limit=10
@@ -33,15 +34,17 @@ const PopularServices = () => {
               <ServiceCard key={idx} service={service}></ServiceCard>
             ))}
           </div>
-          <motion.button
-            initial={{ color: "#5bb543", backgroundColor: "#fff" }}
-            whileHover={{ color: "#fff", backgroundColor: "#5bb543" }}
-            transition={{ delay: 0.1, duration: 0.7 }}
-            className="btn rounded btn-sm  mt-10 border-[#5bb543]"
-          >
-            View All Services
-            <FaArrowRightLong />
-          </motion.button>
+          <Link to="/services">
+            <motion.button
+              initial={{ color: "#5bb543", backgroundColor: "#fff" }}
+              whileHover={{ color: "#fff", backgroundColor: "#5bb543" }}
+              transition={{ delay: 0.1, duration: 0.7 }}
+              className="btn rounded btn-sm  mt-10 border-[#5bb543]"
+            >
+              View All Services
+              <FaArrowRightLong />
+            </motion.button>
+          </Link>
         </div>
       </div>
     </div>

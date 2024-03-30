@@ -4,34 +4,28 @@ import TestimonialCard from "./TestimonialCard";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { HiArrowRight, HiRadio } from "react-icons/hi2";
+import { HiArrowRight} from "react-icons/hi2";
 import { HiArrowLeft } from "react-icons/hi2";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 const Testimonial = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
   const axios = useAxios();
   const sliderRef = useRef(null);
   const { data: reviews } = useQuery({
     queryKey: ["review"],
-    queryFn: async () => {
+  queryFn: async () => {
       const res = await axios.get("/user/review");
       return res;
     },
   });
 
-  const handleSlideChange = (index) => {
-    setCurrentIndex(index);
-  };
-  const play = () => {
-    sliderRef.current.slickPlay();
-  };
   const settings = {
     slidesToShow: 2,
     slidesToScroll: 2,
     autoplay: true,
+    speed: 1000,
     autoplaySpeed: 3500,
-    afterChange: handleSlideChange,
+    rtl: true,
 
     responsive: [
       {
@@ -42,7 +36,7 @@ const Testimonial = () => {
         },
       },
       {
-        breakpoint: 900,
+        breakpoint: 900, 
         settings: {
           slidesToShow: 2,
         },

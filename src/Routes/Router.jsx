@@ -4,13 +4,16 @@ import Home from "../Pages/Home/Home";
 import Services from "../Pages/Services/Services";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import MyBookings from "../Pages/MyBookings/MyBookings";
-import Login from "../Pages/Login/Login";
 import Signup from "../Pages/Signup/Signup";
+import Details from "../Pages/ServiceDetails/Details";
+import SignIn from "../Pages/Login/SignIn";
+import ErrorPage from "../Pages/Error/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "",
@@ -19,6 +22,11 @@ const router = createBrowserRouter([
       {
         path: "services",
         element: <Services />,
+        loader: () => fetch("http://localhost:2000/api/v1/service/count"),
+      },
+      {
+        path: "service/:id",
+        element: <Details />,
       },
       {
         path: "aboutUs",
@@ -32,7 +40,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <Login />,
+    element: <SignIn />,
   },
   {
     path: "/signup",
