@@ -7,10 +7,13 @@ import {
 import { createContext, useEffect, useState } from "react";
 import { auth } from "../Config/FirebaseConfig";
 import useAxios from "../Hooks/useAxios";
+import { FlatTree } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
+  // const navigate = useNavigate();
   const axios = useAxios();
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -34,10 +37,11 @@ const AuthProvider = ({ children }) => {
       console.log(user);
       if (user) {
         setUser(user);
+        setIsLoading(false);
         const email = user.email;
         const res = axios.post("/auth/access-token", { email });
 
-        console.log(email);
+        console.log(email, res);
       }
     });
     return () => unSubscribe();

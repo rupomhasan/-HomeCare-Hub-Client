@@ -8,6 +8,7 @@ import Signup from "../Pages/Signup/Signup";
 import Details from "../Pages/ServiceDetails/Details";
 import SignIn from "../Pages/Login/SignIn";
 import ErrorPage from "../Pages/Error/ErrorPage";
+import PrivetRoutes from "./PrivetRoutes";
 
 const router = createBrowserRouter([
   {
@@ -21,12 +22,20 @@ const router = createBrowserRouter([
       },
       {
         path: "services",
-        element: <Services />,
+        element: (
+          <PrivetRoutes>
+            <Services />
+          </PrivetRoutes>
+        ),
         loader: () => fetch("http://localhost:2000/api/v1/service/count"),
       },
       {
         path: "service/:id",
-        element: <Details />,
+        element: (
+          <PrivetRoutes>
+            <Details />,
+          </PrivetRoutes>
+        ),
       },
       {
         path: "aboutUs",
@@ -34,7 +43,11 @@ const router = createBrowserRouter([
       },
       {
         path: "myBookings",
-        element: <MyBookings />,
+        element: (
+          <PrivetRoutes>
+            <MyBookings />
+          </PrivetRoutes>
+        ),
       },
     ],
   },

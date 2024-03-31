@@ -2,7 +2,7 @@ import { Navigate, useLocation } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
 import { Children } from "react";
 
-const PrivetRoutes = () => {
+const PrivetRoutes = ({ children }) => {
   const { isLoading, user } = useAuth();
   const location = useLocation();
   console.log(location);
@@ -18,7 +18,7 @@ const PrivetRoutes = () => {
     return <Navigate state={location.pathname} to="/login" replace />;
   }
 
-  return Children;
+  return children;
 };
 
 export default PrivetRoutes;

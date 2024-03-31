@@ -14,11 +14,16 @@ const NavSide = () => {
   return (
     <div className="flex-none">
       <div className="dropdown dropdown-end">
-        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
+        <Link
+          to="/myBookings"
+          tabIndex={0}
+          role="button"
+          className="btn btn-ghost btn-circle"
+        >
           <div className="indicator">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="h-6 w-6"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -32,23 +37,7 @@ const NavSide = () => {
             </svg>
             <span className="badge badge-sm indicator-item">8</span>
           </div>
-        </div>
-        <div
-          tabIndex={0}
-          className=" card-body rounded-xl text-left dropdown-content w-52 bg-base-100 shadow"
-        >
-          <div className=" spay-10">
-            <div className="font-medium text-left text-xl font-Teko">
-              8 Items
-            </div>
-            <span className="text-[#5bb543]">Subtotal: $999</span>
-            <div className="card-actions">
-              <Link className="btn btn-sm w-full text-white bg-[#5bb543] hover:bg-[#47ee19] mt-3 rounded-xl">
-                View cart
-              </Link>
-            </div>
-          </div>
-        </div>
+        </Link>
       </div>
       <div className="dropdown dropdown-end">
         <div

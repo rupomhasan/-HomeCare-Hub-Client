@@ -1,6 +1,11 @@
 import { IoCheckmarkDone } from "react-icons/io5";
+import ServiceModal from "./ServiceModal";
 
-const ServicePrice = ({ price }) => {
+const ServicePrice = ({ price, provider, name, img }) => {
+  const handleModal = () => {
+    document.getElementById("my_modal_1").showModal();
+  };
+
   console.log(price);
   return (
     <div className="ml-10 card  shadow-xl bg-[#fff] ">
@@ -25,9 +30,21 @@ const ServicePrice = ({ price }) => {
           <p>Immediate access to services upon purchase confirmation.</p>
         </div>
       </div>
-      <button className="btn w-full bg-[#5bb543] rounded text-white  text-xl hover:bg-[#2fc006]">
-        Order Now
-      </button>
+      <div>
+        <button
+          onClick={handleModal}
+          className="btn w-full bg-[#5bb543] rounded text-white  text-xl hover:bg-[#2fc006]"
+        >
+          Order Now
+        </button>
+        <ServiceModal
+          openMOdal={handleModal}
+          price={price}
+          provider={provider}
+          img={img}
+          name={name}
+        />
+      </div>
     </div>
   );
 };

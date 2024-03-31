@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import Social from "../../Components/Shared/Social";
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -11,10 +11,14 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { newUserSignUp } = useAuth();
+  const location = useLocation();
+  const navigate = useNavigate();
   const handleNewUser = (e) => {
     e.preventDefault();
     newUserSignUp(email, password).then((userCredential) => {
       console.log(userCredential.user);
+
+      navigate(location?.state ? location?.state : "/");
     });
     console.log({ name, email, password });
   };

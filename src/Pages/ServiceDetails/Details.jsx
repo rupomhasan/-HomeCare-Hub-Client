@@ -19,11 +19,9 @@ const Details = () => {
       return await axios.get(`/service/${id}`);
     },
   });
-  //   console.log(service?.data);
   const {
     Category,
     Rating,
-    ServiceOffice,
     Service_Image,
     Service_Name,
     Service_Price,
@@ -54,7 +52,12 @@ const Details = () => {
                   />
                 </div>
                 <div className="space-y-10">
-                  <ServicePrice price={Service_Price} />
+                  <ServicePrice
+                    price={Service_Price}
+                    provider={Service_Provider}
+                    img={Service_Image}
+                    name={Service_Name}
+                  />
 
                   <AboutSeller
                     seller={Service_Provider}

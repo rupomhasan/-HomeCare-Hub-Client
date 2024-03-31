@@ -24,7 +24,6 @@ const Navbar = () => {
     };
   }, []);
 
-
   return (
     <>
       <motion.div
@@ -39,7 +38,7 @@ const Navbar = () => {
           delay: 0.2,
           duration: 0.5,
           type: "tween",
-          ease: user ? "easeIn" : "linear",
+          ease: isStick ? "easeIn" : "linear",
         }}
       >
         <div className="flex-none lg:hidden">
