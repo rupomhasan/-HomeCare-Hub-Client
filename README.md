@@ -41,11 +41,12 @@ __HomeCare Hub__ is a web application designed to provide a convenient and relia
 - __Popular Services__ : In HomeCare Hub highlights 'Popular Services'. 'View All' to explore products, view and navigate to details page
 - __Testimonal__ : Testimonial slider with responsive behavior and Previous and next buttons for navigation.
 - __Improved Blogs__: Dynamically load offer services with expand/collapse option, enhancing user engagement.
-- __Services Page__: Browse services with pagination and category filtering.
-- __Service Details__: Get detailed service info and locate providers.
-- __Authentication__: Secure login and registration with Firebase.
-- __Private Routes__: Access control for sensitive pages.
-- __Token Management__: JWT-based authentication and token clearing on logout.
+- __Services Page__ : Browse services with pagination and category filtering.
+- __Service Details__ : Get detailed service info and locate providers.
+- __Book Service__ : Added functionality to book services using a modal window.User can input name , asdress , contact and servicedate. Confiremed bookings are sent to the API also have Cancel button.
+- __Authentication__ : Secure login and registration with Firebase.
+- __Private Routes__ : Access control for sensitive pages.
+- __Token Management__ : JWT-based authentication and token clearing on logout.
 
 
 
