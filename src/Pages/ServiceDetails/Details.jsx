@@ -7,6 +7,8 @@ import AboutSeller from "./AboutSeller";
 import ServicePrice from "./ServicePrice";
 import RelatedService from "./RelatedService";
 import ProviderMaps from "./ProviderMaps";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const Details = () => {
   const { id } = useParams();
@@ -37,12 +39,14 @@ const Details = () => {
   return (
     <div className="">
       {isLoading ? (
-        <div>Loading...</div>
+        <div>
+          <div>{data?.data?.body || <Skeleton count={6} />}</div>
+        </div>
       ) : (
         <div>
           <CommonBanner routesName={routesName} />
           <div className="max-w-screen-xl mx-auto">
-            <div className="my-20">
+            <div className="my-20 mx-3 md:mx-10">
               <div className="lg:grid lg:grid-cols-3 ">
                 <div className="col-span-2">
                   <Aside
@@ -51,19 +55,21 @@ const Details = () => {
                     details={Service_Description}
                   />
                 </div>
-                <div className="space-y-10">
-                  <ServicePrice
-                    price={Service_Price}
-                    provider={Service_Provider}
-                    img={Service_Image}
-                    name={Service_Name}
-                  />
+                <div className="flex justify-center">
+                  <div className="space-y-10">
+                    <ServicePrice
+                      price={Service_Price}
+                      provider={Service_Provider}
+                      img={Service_Image}
+                      name={Service_Name}
+                    />
 
-                  <AboutSeller
-                    seller={Service_Provider}
-                    rating={Rating}
-                    order={Total_Purchase}
-                  />
+                    <AboutSeller
+                      seller={Service_Provider}
+                      rating={Rating}
+                      order={Total_Purchase}
+                    />
+                  </div>
                 </div>
               </div>
             </div>

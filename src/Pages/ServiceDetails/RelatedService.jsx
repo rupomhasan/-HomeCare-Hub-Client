@@ -19,7 +19,6 @@ const RelatedService = ({ category }) => {
     },
   });
 
-
   const settings = {
     speed: 1000,
     slidesToScroll: 1,
@@ -49,7 +48,7 @@ const RelatedService = ({ category }) => {
   console.log(data);
   return (
     <div className="my-20">
-      <div className="flex justify-between mx-10 items-center">
+      <div className="flex justify-between mx-5 items-center">
         <h3 className="text-3xl text-left  font-Teko font-semibold ">
           Related Services
         </h3>
@@ -68,7 +67,7 @@ const RelatedService = ({ category }) => {
           </button>
         </div>
       </div>
-      <div className="overflow-hidden mx-5">
+      <div className="overflow-hidden mx-2">
         <Slider ref={sliderRef} {...settings}>
           {data?.data?.map((item, idx) => (
             <RelatedCard key={idx} data={item}></RelatedCard>

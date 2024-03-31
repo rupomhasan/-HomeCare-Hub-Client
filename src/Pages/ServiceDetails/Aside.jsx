@@ -3,7 +3,7 @@ import { TbPointFilled } from "react-icons/tb";
 
 const Aside = ({ name, photo, details }) => {
   return (
-    <div className="mx-10 ">
+    <div className="md:mx-10 ">
       <div className="flex justify-center">
         <img src={photo} alt="" />
       </div>

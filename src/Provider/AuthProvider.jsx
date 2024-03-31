@@ -7,8 +7,6 @@ import {
 import { createContext, useEffect, useState } from "react";
 import { auth } from "../Config/FirebaseConfig";
 import useAxios from "../Hooks/useAxios";
-import { FlatTree } from "framer-motion";
-import { useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext();
 
@@ -16,34 +14,43 @@ const AuthProvider = ({ children }) => {
   // const navigate = useNavigate();
   const axios = useAxios();
   const [user, setUser] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   const newUserSignUp = (email, password) => {
-    setIsLoading(true);
+    setIsLoading(false);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const userLogin = (email, password) => {
-    setIsLoading(true);
+    setIsLoading(false);
     return signInWithEmailAndPassword(auth, email, password);
   };
   const userLogOut = () => {
-    setIsLoading(true);
+    setIsLoading(false);
     return signOut(auth);
   };
 
   useEffect(() => {
-    const unSubscribe = onAuthStateChanged(auth, (user) => {
+    const unSubscribe = onAuthStateChanged(auth, async (user) => {
       console.log(user);
       if (user) {
         setUser(user);
-        setIsLoading(false);
+        setIsLoading(true);
         const email = user.email;
-        const res = axios.post("/auth/access-token", { email });
-
-        console.log(email, res);
+        try {
+          const res = await axios.post("/auth/access-token", { email });
+          console.log(email, res);
+        } catch (error) {
+          console.log("Error retrieving access token");
+        } finally {
+          setIsLoading(false);
+        }
+      } else {
+        setUser(null);
+        setIsLoading(false);
       }
     });
+
     return () => unSubscribe();
   }, [axios]);
   const values = { newUserSignUp, userLogin, userLogOut, user, isLoading };

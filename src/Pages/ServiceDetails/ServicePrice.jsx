@@ -8,7 +8,7 @@ const ServicePrice = ({ price, provider, name, img }) => {
 
   console.log(price);
   return (
-    <div className="ml-10 card  shadow-xl bg-[#fff] ">
+    <div className="md:ml-10 card  shadow-xl bg-[#fff] ">
       <div className="flex text-white justify-between px-10 py-2 rounded-t-lg text-xl font-bold  bg-[#142935]">
         <h3>Service Price</h3>
         <p>{price}</p>

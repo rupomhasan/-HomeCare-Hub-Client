@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 const BlogCard = ({ data }) => {
   const {
+    _id,
     Offer,
     Service_Image,
     Rating: rating,
@@ -84,7 +85,7 @@ const BlogCard = ({ data }) => {
               <TbCurrencyTaka className="text-xl" />
               <span className="text-3xl">{Service_Price}</span>
             </div>
-            <Link className="text-xl">
+            <Link to={`/service/${_id}`} className="text-xl">
               View Details <FaArrowRightLong className="badge badge-outline" />
             </Link>
           </div>

@@ -4,6 +4,7 @@ import { useState } from "react";
 import useAxios from "../../Hooks/useAxios";
 import useAuth from "../../Hooks/useAuth";
 import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const ServiceModal = ({ openModal, name, provider, img, price }) => {
   const navigate = useNavigate();
@@ -37,8 +38,15 @@ const ServiceModal = ({ openModal, name, provider, img, price }) => {
       .post("http://localhost:2000/api/v1/user/create-booking", data)
       .then((res) => {
         console.log(res.data);
-        if (res ? data?.inserted : true) {
+        if (res?.data?.acknowledged) {
           navigate("/services");
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Service Added Successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
         }
       });
   };
