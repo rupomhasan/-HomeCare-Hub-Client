@@ -47,7 +47,8 @@ __HomeCare Hub__ is a web application designed to provide a convenient and relia
 - __Authentication__ : Secure login and registration with Firebase.
 - __Private Routes__ : Access control for sensitive pages.
 - __Token Management__ : JWT-based authentication and token clearing on logout.
--  __Booking__ : Customers book services easily and delete the all services or one by one. 
+-  __Booking__ : Customers book services easily and delete the all services or one by one.
+-  __AboutUs__ : Implemented 'About Us' and 'Our Facilities' sections along with video support on the   About Us page.
 
 
 
