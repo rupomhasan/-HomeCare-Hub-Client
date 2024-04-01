@@ -27,7 +27,6 @@ const Details = () => {
     Service_Image,
     Service_Name,
     Service_Price,
-    Service_Purchase,
     Service_Description,
     Service_Provider,
     Total_Purchase,
