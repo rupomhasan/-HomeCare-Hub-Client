@@ -11,10 +11,10 @@ const VideoModal = ({ onClose, videoId, isOpen }) => {
       >
         <div className=" relative bg-white rounded-lg w-fit p-1  mx-auto ">
           <button
-            className="absolute top-2 right-2 text-gray-300 hover:text-gray-600"
+            className="absolute -top-5 -right-5 text-white hover:text-gray-600"
             onClick={onClose}
           >
-            <RxCross2 className="text-xl" />
+            <RxCross2 className="text-2xl" />
           </button>
           <div className="aspect-w-16 aspect-h-9">
             <iframe
