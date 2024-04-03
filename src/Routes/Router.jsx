@@ -9,6 +9,13 @@ import Details from "../Pages/ServiceDetails/Details";
 import SignIn from "../Pages/Login/SignIn";
 import ErrorPage from "../Pages/Error/ErrorPage";
 import PrivetRoutes from "./PrivetRoutes";
+import MyServices from "../Pages/DashBoard/MyServices";
+import Profile from "../Pages/DashBoard/Profile";
+import AddService from "../Pages/DashBoard/AddService";
+import DashBoardLayout from "../Pages/DashBoard/DashBoard";
+import DashBoard from "../Pages/DashBoard/DashBoard";
+import MyBookedServices from "../Pages/DashBoard/MyBookedServices";
+import Setting from "../Pages/DashBoard/Setting";
 
 const router = createBrowserRouter([
   {
@@ -49,8 +56,39 @@ const router = createBrowserRouter([
           </PrivetRoutes>
         ),
       },
+      {
+        path: "/dashboard",
+        element: (
+          <PrivetRoutes>
+            <DashBoardLayout />
+          </PrivetRoutes>
+        ),
+        children: [
+          {
+            path: "",
+            element: <Profile />,
+          },
+          {
+            path: "myServices",
+            element: <MyServices />,
+          },
+          {
+            path: "addService",
+            element: <AddService />,
+          },
+          {
+            path: "myBookedServices",
+            element: <MyBookedServices />,
+          },
+          {
+            path: "setting",
+            element: <Setting />,
+          },
+        ],
+      },
     ],
   },
+
   {
     path: "/login",
     element: <SignIn />,

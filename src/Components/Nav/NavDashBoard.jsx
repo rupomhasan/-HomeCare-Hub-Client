@@ -16,13 +16,13 @@ const NavDashBoard = () => {
         className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
       >
         <li>
-          <Link>My-Service</Link>
+          <Link to="/dashboard/myServices">My Provided Service</Link>
         </li>
         <li>
-          <Link>Add-Service</Link>
+          <Link to="/dashboard/myBookedServices">My Booked Services</Link>
         </li>
         <li>
-          <Link>My-Schedules</Link>
+          <Link to="/dashboard/addService">Add New Service</Link>
         </li>
       </ul>
     </div>

@@ -69,10 +69,12 @@ const Employee = () => {
             Bookmarks grove right
           </motion.p>
         </div>
-        <div className="overflow-hidden mx-5">
+        <div className="overflow-hidden">
           <Slider {...settings}>
             {employee?.data.map((member, idx) => (
-              <EmployeeCard key={idx} data={member}></EmployeeCard>
+              <div key={idx} className="px-3">
+                <EmployeeCard data={member}></EmployeeCard>
+              </div>
             ))}
           </Slider>
         </div>

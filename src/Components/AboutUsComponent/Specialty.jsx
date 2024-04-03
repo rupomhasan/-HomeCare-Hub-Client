@@ -1,9 +1,10 @@
 import { HiCheckBadge } from "react-icons/hi2";
 import playButton from "../../assets/Lottie/playButton.json";
 import Lottie from "lottie-react";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import CommonBanner from "../common/CommonBanner";
 import VideoModal from "./VideoModal";
+
 const Specialty = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const closeVideo = () => {

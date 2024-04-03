@@ -57,13 +57,13 @@ const NavSide = () => {
           className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
         >
           <li>
-            <Link className="justify-between">
+            <Link to="/dashboard" className="justify-between">
               Profile
               <span className="badge">New</span>
             </Link>
           </li>
           <li>
-            <Link>Settings</Link>
+            <Link  to="/dashboard/setting">Settings</Link>
           </li>
           <li>
             <button onClick={handleLogOut}>Logout</button>

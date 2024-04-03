@@ -6,7 +6,6 @@ import { FaTwitter } from "react-icons/fa";
 
 const EmployeeCard = ({ data }) => {
   const [isHovered, setIsHovered] = useState(false);
-  console.log(data);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -19,7 +18,7 @@ const EmployeeCard = ({ data }) => {
   //   console.log(isHovered);
   return (
     <div
-      className="relative m-2"
+      className="relative "
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -31,14 +30,14 @@ const EmployeeCard = ({ data }) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="absolute bottom-0 left-0  bg-blue-300 bg-opacity-50 w-full h-full py-5"
+            className="absolute bottom-0 left-0  bg-blue-600 bg-opacity-50 w-full h-full py-5 text-white"
           >
             <motion.div
               initial={{ opacity: 1 }}
-              className="card-title flex flex-col justify-center items-center h-full space-y-1 "
+              className=" flex flex-col justify-center items-center h-full space-y-2 "
             >
-              <h2>{name}</h2>
-              <h2>{status}</h2>
+              <h2 className="text-sm">{name}</h2>
+              <h2 className=" text-xs font-bold ">{status}</h2>
               <div className="flex gap-1 items-center">
                 <TiSocialFacebook className="text-4xl bg-sky-600 rounded-full text-white link" />
                 <FaTwitter className="text-4xl bg-sky-500 rounded-full p-2 text-white link" />

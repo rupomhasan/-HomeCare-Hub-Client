@@ -31,18 +31,19 @@ const SignIn = () => {
   return (
     <div>
       <div className=" min-h-screen max-w-screen-xl mx-auto">
-        <motion.button
-          initial={{ color: "#fff", backgroundColor: "#5bb543" }}
-          whileHover={{ color: "#5bb543", backgroundColor: "#fff" }}
-          transition={{ delay: 0.1, duration: 0.7 }}
-          className="absolute btn z-10 hover:border-[#5bb543] hover:border-2 hover:bg-white hover:text-[#5bb543] btn-sm rounded left-3 top-3 "
-        >
-          <TiArrowBack className="text-2xl " />
-          <Link className="text-2xl font-Teko font-medium " to="/">
-            {" "}
-            Back To Home
-          </Link>
-        </motion.button>
+        <Link to="/">
+          <motion.button
+            initial={{ color: "#fff", backgroundColor: "#5bb543" }}
+            whileHover={{ color: "#5bb543", backgroundColor: "#fff" }}
+            transition={{ delay: 0.1, duration: 0.7 }}
+            className="absolute btn z-10 hover:border-[#5bb543] hover:border-2 hover:bg-white hover:text-[#5bb543] btn-sm rounded left-3 top-3 "
+          >
+            <TiArrowBack className="text-2xl " />
+            <button className="text-2xl font-Teko font-medium ">
+              Back To Home
+            </button>
+          </motion.button>
+        </Link>
         <div className="text-center mt-10">
           <h1 className="text-5xl font-Teko  font-semibold">Login now!</h1>
           <div className="text-xl text-gray-500 font-semibold flex justify-center">
