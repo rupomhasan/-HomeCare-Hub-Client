@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
+import { FadeLoader } from "react-spinners";
 
 // done : http://localhost:5000/api/v1/services?category=Gardening
 
@@ -16,7 +17,7 @@ const Services = () => {
   const axios = useAxios();
   const { totalServices } = useLoaderData();
 
-  const { data: services } = useQuery({
+  const { data: services, isLoading } = useQuery({
     queryKey: ["services", categoryName, page],
     queryFn: async () => {
       const res = await axios.get(
@@ -46,51 +47,65 @@ const Services = () => {
   };
   console.log(category?.data, totalServices, page);
   return (
-    <div className="max-w-screen-xl mx-auto">
-      <CommonBanner routesName={routesName} />
-      <div className="flex m-10 ">
-        <select
-          onChange={(e) => setCategoryName(e.target.value)}
-          className="px-5 py-2 rounded border"
-        >
-          <option>Select Category</option>
-          {category?.data?.map((item, idx) => (
-            <option key={idx}>{item.category}</option>
-          ))}
-        </select>
-      </div>
-      <div className="grid my-20 mx-10 gap-10 md:grid-cols-2  lg:grid-cols-3 z-[100] ">
-        {services?.data?.map((service, idx) => (
-          <ServiceCard key={idx} service={service}></ServiceCard>
-        ))}
-      </div>
+    <div>
+      {isLoading ? (
+        <div>
+          <FadeLoader color="#5bb543" />
+        </div>
+      ) : (
+        <div className="max-w-screen-xl mx-auto">
+          <CommonBanner routesName={routesName} />
+          <div className="flex m-10 ">
+            <select
+              onChange={(e) => setCategoryName(e.target.value)}
+              className="px-5 py-2 rounded border"
+            >
+              <option>Select Category</option>
+              {category?.data?.map((item, idx) => (
+                <option key={idx}>{item.category}</option>
+              ))}
+            </select>
+          </div>
+          <div className="grid my-20 mx-10 gap-10 md:grid-cols-2  lg:grid-cols-3 z-[100] ">
+            {services?.data?.map((service, idx) => (
+              <ServiceCard key={idx} service={service}></ServiceCard>
+            ))}
+          </div>
 
-      <div className="join mb-10">
-        <button onClick={handlePrev} className="join-item btn btn-sm rounded">
-          <MdKeyboardDoubleArrowLeft className="text-2xl" />
-        </button>
-        {Array(totalPage)
-          .fill(0)
-          .map((item, idx) => {
-            const pageNumber = idx + 1;
-            console.log(pageNumber, idx);
+          <div className="join mb-10">
+            <button
+              onClick={handlePrev}
+              className="join-item btn btn-sm rounded"
+            >
+              <MdKeyboardDoubleArrowLeft className="text-2xl" />
+            </button>
+            {Array(totalPage)
+              .fill(0)
+              .map((item, idx) => {
+                const pageNumber = idx + 1;
+                console.log(pageNumber, idx);
 
-            return (
-              <button
-                onClick={() => setPage(pageNumber)}
-                className={` ${
-                  pageNumber === page ? "bg-[#5bb543] text-white" : ""
-                } btn btn-sm join-item`}
-                key={pageNumber}
-              >
-                {pageNumber}
-              </button>
-            );
-          })}
-        <button onClick={handleNext} className="join-item btn btn-sm rounded">
-          <MdKeyboardDoubleArrowRight className="text-2xl" />
-        </button>
-      </div>
+                return (
+                  <button
+                    onClick={() => setPage(pageNumber)}
+                    className={` ${
+                      pageNumber === page ? "bg-[#5bb543] text-white" : ""
+                    } btn btn-sm join-item`}
+                    key={pageNumber}
+                  >
+                    {pageNumber}
+                  </button>
+                );
+              })}
+            <button
+              onClick={handleNext}
+              className="join-item btn btn-sm rounded"
+            >
+              <MdKeyboardDoubleArrowRight className="text-2xl" />
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

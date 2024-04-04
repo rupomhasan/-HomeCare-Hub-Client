@@ -8,25 +8,27 @@ import { createContext, useEffect, useState } from "react";
 import { auth } from "../Config/FirebaseConfig";
 import useAxios from "../Hooks/useAxios";
 
+
 export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   // const navigate = useNavigate();
   const axios = useAxios();
   const [user, setUser] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
 
   const newUserSignUp = (email, password) => {
-    setIsLoading(false);
+    setIsLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const userLogin = (email, password) => {
-    setIsLoading(false);
+    setIsLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
   const userLogOut = () => {
-    setIsLoading(false);
+    setIsLoading(true);
     return signOut(auth);
   };
 
@@ -35,7 +37,7 @@ const AuthProvider = ({ children }) => {
       console.log(user);
       if (user) {
         setUser(user);
-        setIsLoading(true);
+        // setIsLoading(true);
         const email = user.email;
         try {
           const res = await axios.post("/auth/access-token", { email });
@@ -46,14 +48,30 @@ const AuthProvider = ({ children }) => {
           setIsLoading(false);
         }
       } else {
-        setUser(null);
         setIsLoading(false);
+        setUser(null);
       }
     });
 
     return () => unSubscribe();
   }, [axios]);
-  const values = { newUserSignUp, userLogin, userLogOut, user, isLoading };
+
+  // const { data: bookingCount, refetch } = useQuery({
+  //   queryKey: ["BookingCount"],
+  //   queryFn: async () => {
+  //     return await axios.get(`/booking/count?email=${user.email}`);
+  //   },
+  // });
+
+  const values = {
+    // totalBooking,
+    // recount,
+    newUserSignUp,
+    userLogin,
+    userLogOut,
+    user,
+    isLoading,
+  };
 
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
 };

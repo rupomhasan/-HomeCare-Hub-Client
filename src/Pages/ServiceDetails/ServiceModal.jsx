@@ -5,11 +5,13 @@ import useAxios from "../../Hooks/useAxios";
 import useAuth from "../../Hooks/useAuth";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import useBooking from "../../Hooks/useBooking";
 
 const ServiceModal = ({ openModal, name, provider, img, price }) => {
   const navigate = useNavigate();
   const { user } = useAuth();
   const axios = useAxios();
+  const { refetch } = useBooking();
   const { Name, Email } = provider;
   const [customerName, setCustomerName] = useState("");
   const [number, setNumber] = useState(null);
@@ -34,21 +36,20 @@ const ServiceModal = ({ openModal, name, provider, img, price }) => {
         status: "pending",
       },
     };
-    axios
-      .post("http://localhost:2000/api/v1/user/create-booking", data)
-      .then((res) => {
-        console.log(res.data);
-        if (res?.data?.acknowledged) {
-          navigate("/services");
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Service Added Successfully",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-        }
-      });
+    axios.post("/user/create-booking", data).then((res) => {
+      console.log(res.data);
+      if (res?.data?.acknowledged) {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Service Added Successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        refetch();
+        navigate("/services");
+      }
+    });
   };
   return (
     <dialog id="my_modal_1" className="modal">

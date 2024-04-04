@@ -13,9 +13,9 @@ import MyServices from "../Pages/DashBoard/MyServices";
 import Profile from "../Pages/DashBoard/Profile";
 import AddService from "../Pages/DashBoard/AddService";
 import DashBoardLayout from "../Pages/DashBoard/DashBoard";
-import DashBoard from "../Pages/DashBoard/DashBoard";
 import MyBookedServices from "../Pages/DashBoard/MyBookedServices";
 import Setting from "../Pages/DashBoard/Setting";
+import DashBoard from "../Pages/DashBoard/DashBoard";
 
 const router = createBrowserRouter([
   {
@@ -34,7 +34,7 @@ const router = createBrowserRouter([
             <Services />
           </PrivetRoutes>
         ),
-        loader: () => fetch("http://localhost:2000/api/v1/service/count"),
+        loader: () => fetch("http://localhost:33000/api/v1/service/count"),
       },
       {
         path: "service/:id",
@@ -46,7 +46,11 @@ const router = createBrowserRouter([
       },
       {
         path: "aboutUs",
-        element: <AboutUs />,
+        element: (
+          <PrivetRoutes>
+            <AboutUs />
+          </PrivetRoutes>
+        ),
       },
       {
         path: "myBookings",
@@ -60,7 +64,7 @@ const router = createBrowserRouter([
         path: "/dashboard",
         element: (
           <PrivetRoutes>
-            <DashBoardLayout />
+            <DashBoard />
           </PrivetRoutes>
         ),
         children: [

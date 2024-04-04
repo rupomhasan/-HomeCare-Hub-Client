@@ -21,10 +21,7 @@ const ErrorPage = () => {
       </motion.button>
       <div className="mx-auto">
         <div className="flex justify-center items-center h-[100vh]">
-          <Lottie
-            className="max-h-[80vh] max-w-[80vw] "
-            animationData={errorAnimation}
-          />
+          <Lottie className="h-full w-full " animationData={errorAnimation} />
         </div>
       </div>
     </div>

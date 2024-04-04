@@ -9,6 +9,7 @@ import RelatedService from "./RelatedService";
 import ProviderMaps from "./ProviderMaps";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { FadeLoader } from "react-spinners";
 
 const Details = () => {
   const { id } = useParams();
@@ -38,8 +39,8 @@ const Details = () => {
   return (
     <div className="">
       {isLoading ? (
-        <div>
-          <div>{data?.data?.body || <Skeleton count={6} />}</div>
+        <div className="flex justify-center my-10">
+          <FadeLoader color="#5bb543" speedMultiplier={2} />{" "}
         </div>
       ) : (
         <div>
@@ -72,10 +73,11 @@ const Details = () => {
                 </div>
               </div>
             </div>
-            <div className=" mx-auto">
-              <ProviderMaps props={Service_Area} />
-            </div>
+
             <RelatedService category={Category} />
+          </div>
+          <div className=" mx-auto">
+            <ProviderMaps props={Service_Area} />
           </div>
         </div>
       )}

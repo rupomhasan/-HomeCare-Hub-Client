@@ -60,8 +60,8 @@ const AddService = () => {
   };
   return (
     <div>
-      <div className="my-20  bg-sky-200">
-        <div className="max-w-screen-md mx-auto  text-left p-10 shadow-xl">
+      <div className="my-10 py-10 bg-[url('https://thepixelcurve.com/html/techwix/techwix/assets/images/bg/choose-us-bg3.jpg')] bg-cover  bg-sky-200 bg-blend-multiply">
+        <div className="max-w-screen-md mx-auto  text-left p-10 ">
           <form onSubmit={handleNewService} className="space-y-5">
             <h3 className="text-4xl font-Teko text-center font-medium">
               Add New Service
