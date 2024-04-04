@@ -50,6 +50,7 @@ __HomeCare Hub__ is a web application designed to provide a convenient and relia
 -  __Booking__ : Customers book services easily and delete the all services or one by one.
 -  __AboutUs__ : Implemented 'About Us' and 'Our Facilities' sections along with video support on the   About Us page.
 -  __Employee__ : Enhances employees with a subtle animation on hover, highlighting the employee's name and providing additional information.
+-  __Add Service__ : Add services quickly with a simple form. Enter details about the service. Upload an image, validate input, preview, submit, and receive a success message.
 
 
 
