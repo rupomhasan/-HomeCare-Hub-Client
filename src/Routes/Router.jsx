@@ -10,7 +10,6 @@ import SignIn from "../Pages/Login/SignIn";
 import ErrorPage from "../Pages/Error/ErrorPage";
 import PrivetRoutes from "./PrivetRoutes";
 import MyServices from "../Pages/DashBoard/MyServices";
-import Profile from "../Pages/DashBoard/Profile";
 import MyBookedServices from "../Pages/DashBoard/MyBookedServices";
 import Setting from "../Pages/DashBoard/Setting";
 import DashBoard from "../Pages/DashBoard/DashBoard";
@@ -68,10 +67,7 @@ const router = createBrowserRouter([
           </PrivetRoutes>
         ),
         children: [
-          {
-            path: "",
-            element: <Profile />,
-          },
+
           {
             path: "myServices",
             element: <MyServices />,

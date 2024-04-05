@@ -16,7 +16,6 @@ const Employee = () => {
     },
   });
 
-  console.log(employee?.data);
 
   const settings = {
     slidesToShow: 6,

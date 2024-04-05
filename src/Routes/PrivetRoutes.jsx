@@ -1,11 +1,10 @@
 import { Navigate, useLocation } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
-import {  HashLoader } from "react-spinners";
+import { HashLoader } from "react-spinners";
 
 const PrivetRoutes = ({ children }) => {
   const { isLoading, user } = useAuth();
   const location = useLocation();
-  console.log(location);
   if (isLoading) {
     return (
       <div className="flex justify-center my-10">

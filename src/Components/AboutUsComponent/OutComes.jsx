@@ -5,7 +5,6 @@ const OutComes = () => {
   const { ref, inView } = useInView({
     triggerOnce: true,
   });
-  console.log(inView, ref);
 
   return (
     <div className="bg-[url('https://img.freepik.com/premium-photo/woman-pray-god-blessing-wishing-have-better-life_2379-2507.jpg?size=626&ext=jpg&uid=R119918187&ga=GA1.1.892617110.1711971863&semt=ais')] bg-cover bg-sky-600 bg-blend-multiply">

@@ -19,7 +19,6 @@ const MyServices = () => {
       return await axios.get(`/services?email=${user.email}`);
     },
   });
-  console.log(data);
   const handleDeleteAll = () => {
     Swal.fire({
       title: "Are you sure?",
@@ -34,7 +33,6 @@ const MyServices = () => {
         await axios
           .delete(`/clear-allServices?email=${user?.email}`)
           .then((res) => {
-            console.log(res.data);
             if (res.data.deletedCount > 0) {
               Swal.fire({
                 title: "Deleted!",
@@ -49,7 +47,6 @@ const MyServices = () => {
   };
 
   const handleDelete = (id) => {
-    console.log("Id", id);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -61,7 +58,6 @@ const MyServices = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         await axios.delete(`/clear-service/${id}`).then((res) => {
-          console.log(res.data);
           if (res.data.deletedCount > 0) {
             Swal.fire({
               title: "Deleted!",

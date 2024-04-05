@@ -15,7 +15,6 @@ const EmployeeCard = ({ data }) => {
   };
 
   const { image, status, name } = data;
-  //   console.log(isHovered);
   return (
     <div
       className="relative "

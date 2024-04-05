@@ -5,7 +5,7 @@ import useAxios from "../../Hooks/useAxios";
 import useBooking from "../../Hooks/useBooking";
 
 const NavSide = () => {
-  const { userLogOut } = useAuth();
+  const { userLogOut, user } = useAuth();
   const axios = useAxios();
   const { totalBooking } = useBooking();
 
@@ -51,10 +51,14 @@ const NavSide = () => {
           className="btn btn-ghost btn-circle avatar"
         >
           <div className="w-10 rounded-full">
-            <img
-              alt="Tailwind CSS Navbar component"
-              src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-            />
+            {user.photoURL ? (
+              <img src={user.photoURL} />
+            ) : (
+              <img
+                alt="Tailwind CSS Navbar component"
+                src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+              />
+            )}
           </div>
         </div>
         <ul
@@ -62,7 +66,7 @@ const NavSide = () => {
           className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
         >
           <li>
-            <Link to="/dashboard" className="justify-between">
+            <Link className="justify-between">
               Profile
               <span className="badge">New</span>
             </Link>

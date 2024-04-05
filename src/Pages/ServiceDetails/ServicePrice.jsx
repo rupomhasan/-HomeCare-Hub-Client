@@ -6,7 +6,6 @@ const ServicePrice = ({ price, provider, name, img }) => {
     document.getElementById("my_modal_1").showModal();
   };
 
-  console.log(price);
   return (
     <div className="md:ml-10 card  shadow-xl bg-[#fff] ">
       <div className="flex text-white justify-between px-10 py-2 rounded-t-lg text-xl font-bold  bg-[#142935]">

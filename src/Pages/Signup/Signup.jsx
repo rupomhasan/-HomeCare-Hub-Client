@@ -6,6 +6,8 @@ import { TiArrowBack } from "react-icons/ti";
 import Lottie from "lottie-react";
 import loginAnimation from "../../assets/Lottie/Login.json";
 import useAuth from "../../Hooks/useAuth";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 const Signup = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -15,12 +17,14 @@ const Signup = () => {
   const navigate = useNavigate();
   const handleNewUser = (e) => {
     e.preventDefault();
-    newUserSignUp(email, password).then((userCredential) => {
-      console.log(userCredential.user);
+    newUserSignUp(email, password)
+      .then((userCredential) => {
 
-      navigate(location?.state ? location?.state : "/");
-    });
-    console.log({ name, email, password });
+        navigate(location?.state ? location?.state : "/");
+      })
+      .catch((error) => {
+        toast(error.message);
+      });
   };
 
   return (

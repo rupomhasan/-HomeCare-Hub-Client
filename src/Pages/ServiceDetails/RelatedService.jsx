@@ -45,7 +45,6 @@ const RelatedService = ({ category }) => {
     ],
   };
 
-  console.log(data);
   return (
     <div className="my-20">
       <div className="flex justify-between mx-5 items-center">

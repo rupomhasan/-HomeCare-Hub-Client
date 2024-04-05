@@ -20,9 +20,7 @@ const Blogs = () => {
   const { data: totalOffer } = useQuery({
     queryKey: ["totaloffer", limit],
     queryFn: async () => {
-      return await axios.get(
-        "http://localhost:2000/api/v1/offer/count?Offer=Offer"
-      );
+      return await axios.get("/offer/count?Offer=Offer");
     },
   });
   return (

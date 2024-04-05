@@ -45,7 +45,6 @@ const Services = () => {
       setPage(page + 1);
     }
   };
-  console.log(category?.data, totalServices, page);
   return (
     <div>
       {isLoading ? (
@@ -83,7 +82,6 @@ const Services = () => {
               .fill(0)
               .map((item, idx) => {
                 const pageNumber = idx + 1;
-                console.log(pageNumber, idx);
 
                 return (
                   <button

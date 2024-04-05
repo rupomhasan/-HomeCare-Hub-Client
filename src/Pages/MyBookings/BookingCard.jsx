@@ -9,7 +9,6 @@ const BookingCard = ({ bookedItem, refetch }) => {
   const { address, customerName, date, email, status, number } = customer;
   const { Email, Name, Image } = provider;
   const handleDeleteCart = (id) => {
-    console.log(id);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -23,7 +22,6 @@ const BookingCard = ({ bookedItem, refetch }) => {
         axios
           .delete(`/user/clear-booking/${id}?email=${email}`)
           .then((res) => {
-            console.log(res.data);
             if (res?.data?.deletedCount > 0) {
               Swal.fire({
                 title: "Deleted!",
@@ -33,7 +31,9 @@ const BookingCard = ({ bookedItem, refetch }) => {
               refetch();
             }
           })
-          .catch((error) => console.log(error));
+          .catch((error) => {
+
+          });
       }
     });
   };
@@ -54,7 +54,7 @@ const BookingCard = ({ bookedItem, refetch }) => {
               <p>Status : </p>
               <button
                 className={`badge text-xl rounded-lg md:px-5 py-3  font-Teko  ${
-                  status !== "Conformed"
+                  status !== "conformed"
                     ? status === "pending"
                       ? "bg-blue-500 text-white"
                       : "bg-red-500"

@@ -6,6 +6,9 @@ import { motion } from "framer-motion";
 import Lottie from "lottie-react";
 import loginAnimation from "../../assets/Lottie/Login.json";
 import useAuth from "../../Hooks/useAuth";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const SignIn = () => {
   const { userLogin } = useAuth();
   const [password, setPassword] = useState("");
@@ -17,14 +20,13 @@ const SignIn = () => {
     e.preventDefault();
     userLogin(email, password)
       .then((res) => {
-        console.log(res);
 
         if (res) {
           navigate(location?.state ? location?.state : "/");
         }
       })
       .catch((error) => {
-        console.log(error);
+        toast(error.message);
       });
   };
 

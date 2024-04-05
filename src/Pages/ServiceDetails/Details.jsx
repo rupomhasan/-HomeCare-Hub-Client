@@ -13,7 +13,6 @@ import { FadeLoader } from "react-spinners";
 
 const Details = () => {
   const { id } = useParams();
-  console.log(id);
 
   const axios = useAxios();
   const { data, isLoading } = useQuery({
@@ -34,7 +33,6 @@ const Details = () => {
     Service_Area,
   } = data?.data || {};
 
-  console.log(data?.data);
   const routesName = "Service Details";
   return (
     <div className="">

@@ -17,10 +17,8 @@ const ServiceModal = ({ openModal, name, provider, img, price }) => {
   const [number, setNumber] = useState(null);
   const [address, setAddress] = useState("");
   const [date, setDate] = useState();
-  console.log(user);
 
   const handleBookings = () => {
-    console.log({ customerName, email: user.email, number, address, date });
 
     const data = {
       name,
@@ -37,7 +35,6 @@ const ServiceModal = ({ openModal, name, provider, img, price }) => {
       },
     };
     axios.post("/user/create-booking", data).then((res) => {
-      console.log(res.data);
       if (res?.data?.acknowledged) {
         Swal.fire({
           position: "top-end",

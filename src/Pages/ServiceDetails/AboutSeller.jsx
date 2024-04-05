@@ -5,7 +5,6 @@ import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 
 const AboutSeller = ({ seller, order, rating }) => {
-  console.log(seller);
   const { Name, Email, Logo, Image } = seller;
   return (
     <div className="md:ml-10 bg-[#fff]">

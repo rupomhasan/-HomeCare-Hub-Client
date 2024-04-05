@@ -8,7 +8,6 @@ const AnyReactComponent = ({ text }) => (
 );
 
 const ProviderMaps = ({ props }) => {
-  console.log(props);
 
   const { latitude, longitude, name } = props;
 

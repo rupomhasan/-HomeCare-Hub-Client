@@ -2,12 +2,12 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import { auth } from "../Config/FirebaseConfig";
 import useAxios from "../Hooks/useAxios";
-
 
 export const AuthContext = createContext();
 
@@ -17,10 +17,13 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
-
   const newUserSignUp = (email, password) => {
     setIsLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
+  };
+
+  const socialUser = (provider) => {
+    return signInWithPopup(auth, provider);
   };
 
   const userLogin = (email, password) => {
@@ -34,14 +37,13 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, async (user) => {
-      console.log(user);
+
       if (user) {
         setUser(user);
         // setIsLoading(true);
-        const email = user.email;
+      const email = user.email;
         try {
           const res = await axios.post("/auth/access-token", { email });
-          console.log(email, res);
         } catch (error) {
           console.log("Error retrieving access token");
         } finally {
@@ -56,16 +58,8 @@ const AuthProvider = ({ children }) => {
     return () => unSubscribe();
   }, [axios]);
 
-  // const { data: bookingCount, refetch } = useQuery({
-  //   queryKey: ["BookingCount"],
-  //   queryFn: async () => {
-  //     return await axios.get(`/booking/count?email=${user.email}`);
-  //   },
-  // });
-
   const values = {
-    // totalBooking,
-    // recount,
+    socialUser,
     newUserSignUp,
     userLogin,
     userLogOut,

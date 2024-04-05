@@ -10,7 +10,6 @@ const UpdateServices = () => {
 
   const navigate = useNavigate();
 
-  console.log(id);
   const axios = useAxios();
   const { user } = useAuth();
   const [serviceName, setServiceName] = useState("");
@@ -35,7 +34,6 @@ const UpdateServices = () => {
     },
   });
 
-  console.log(productId, data?.data);
 
   const handleUpdateService = async (e) => {
     e.preventDefault();
@@ -60,7 +58,6 @@ const UpdateServices = () => {
       },
     };
     axios.patch(`/update-service/${id}`, service).then((res) => {
-      console.log(res?.data);
 
       if (res?.data?.modifiedCount > 0) {
         Swal.fire({

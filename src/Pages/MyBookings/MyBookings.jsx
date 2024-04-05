@@ -26,7 +26,6 @@ const MyBookings = () => {
       return res;
     },
   });
-  console.log(bookings?.data);
   const routesName = "My Bookings";
 
   const handleDeleteAll = () => {
@@ -43,7 +42,6 @@ const MyBookings = () => {
         axios
           .delete(`/user/clear-allBooking?email=${email}`)
           .then((res) => {
-            console.log(res.data);
             if (res?.data?.deletedCount > 0) {
               Swal.fire({
                 title: "Deleted!",
@@ -54,7 +52,7 @@ const MyBookings = () => {
             countFetch();
             refetch();
           })
-          .catch((error) => console.log(error));
+          .catch((error) => {});
       }
     });
   };
@@ -75,7 +73,6 @@ const MyBookings = () => {
             </h2>
             <div className=" mx-3 md:mx-10 grid gap-10">
               {bookings?.data?.map((item, idx) => {
-                console.log(idx, item);
                 return (
                   <BookingCard bookedItem={item} key={idx} refetch={refetch} />
                 );
