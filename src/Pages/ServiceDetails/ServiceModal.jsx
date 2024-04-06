@@ -19,7 +19,6 @@ const ServiceModal = ({ openModal, name, provider, img, price }) => {
   const [date, setDate] = useState();
 
   const handleBookings = () => {
-
     const data = {
       name,
       price,
@@ -129,9 +128,12 @@ const ServiceModal = ({ openModal, name, provider, img, price }) => {
                 Back To Home
               </Link>
               {/* if there is a button in form, it will close the modal */}
-              <button className=" btn btn-sm text-lg hover:bg-[#5bb543]">
+              <Link
+                to="/services"
+                className=" btn btn-sm text-lg hover:bg-[#5bb543]"
+              >
                 cancel
-              </button>
+              </Link>
             </div>
           </form>
         </div>

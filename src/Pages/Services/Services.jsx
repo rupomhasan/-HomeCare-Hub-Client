@@ -48,7 +48,7 @@ const Services = () => {
   return (
     <div>
       {isLoading ? (
-        <div>
+        <div className="flex justify-center">
           <FadeLoader color="#5bb543" />
         </div>
       ) : (

@@ -2,13 +2,12 @@ import { motion } from "framer-motion";
 
 const CategoryCard = ({ categoryData }) => {
   const { image, category, totalService } = categoryData;
-
   return (
     <div className=" mx-2 lg:mx-4 overflow-hidden rounded">
       <div className="overflow-hidden">
         <motion.img
           initial={{ scale: 1 }}
-          whileHover={{ scale: 1.1 , }}
+          whileHover={{ scale: 1.1 }}
           transition={{
             delay: 0.06,
             duration: 0.3,

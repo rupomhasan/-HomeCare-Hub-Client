@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://localhost:33000/api/v1",
+  baseURL: "https://home-care-hub-server.vercel.app/api/v1",
   withCredentials: true,
 });
 

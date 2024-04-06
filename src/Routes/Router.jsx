@@ -33,7 +33,8 @@ const router = createBrowserRouter([
             <Services />
           </PrivetRoutes>
         ),
-        loader: () => fetch("http://localhost:33000/api/v1/service/count"),
+        loader: () =>
+          fetch("https://home-care-hub-server.vercel.app/api/v1/service/count"),
       },
       {
         path: "service/:id",
@@ -67,7 +68,6 @@ const router = createBrowserRouter([
           </PrivetRoutes>
         ),
         children: [
-
           {
             path: "myServices",
             element: <MyServices />,

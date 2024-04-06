@@ -25,7 +25,7 @@ const ServiceCard = ({ service }) => {
             initial={{ color: "#fff", backgroundColor: "#5bb543" }}
             whileHover={{ color: "#5bb543", backgroundColor: "#fff" }}
             transition={{ delay: 0.1, duration: 0.7 }}
-            className="absolute btn z-10 border-none hover:bg-white hover:text-[#5bb543] btn-sm rounded left-3 top-3 "
+            className="absolute btn z-[6] border-none hover:bg-white hover:text-[#5bb543] btn-sm rounded left-3 top-3 "
           >
             {Category}
           </motion.button>
@@ -71,6 +71,7 @@ const ServiceCard = ({ service }) => {
               <span className="text-3xl">{Service_Price}</span>
             </div>
             <Link to={`/service/${_id}`} className="text-xl">
+              {console.log(_id)}
               View Details <FaArrowRightLong className="badge badge-outline" />
             </Link>
           </div>

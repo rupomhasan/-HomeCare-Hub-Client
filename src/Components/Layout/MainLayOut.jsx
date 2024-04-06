@@ -7,7 +7,7 @@ import Navbar from "../Nav/Navbar";
 const MainLayOut = ({ children }) => {
   return (
     <div className=" font-Rubik">
-      <div className="drawer">
+      <div className="drawer z-20">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col  ">
           {/* Navbar */}
